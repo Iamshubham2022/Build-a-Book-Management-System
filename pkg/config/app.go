@@ -11,7 +11,8 @@ var (
 
 func ConnectORMToDataBase() {
 	// Corrected DSN connection string
-	dsn := "akhil:Axlesharma@12@tcp(127.0.0.1:3306)/simplerest?charset=utf8&parseTime=True&loc=Local"
+	dsn := "shubham:Postman@10@tcp(127.0.0.1:8080)/simplerest?charset=utf8&parseTime=True&loc=Local"
+
 	// Open the connection with GORM and MySQL driver
 	d, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
