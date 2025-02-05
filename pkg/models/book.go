@@ -9,7 +9,7 @@ var db *gorm.DB
 
 type Book struct {
 	gorm.Model
-	Title       string `json:"title"`
+	Name        string `json:"name"`
 	Author      string `json:"author"`
 	Publication string `json:"publication"`
 }
@@ -25,18 +25,17 @@ func (b *Book) CreateBook() *Book {
 	return b
 }
 
-func GetAllBook() []Book{
+func GetAllBook() []Book {
 	var Books []Book
 	db.Find(&Books)
 	return Books
 }
 
-func GetBookById(Id int64) (*Book, *gorm.DB){
+func GetBookById(Id int64) (*Book, *gorm.DB) {
 	var getBook Book
-	db.Where("ID=?",Id).Find(&getBook)
-	return &getBook,db
+	db.Where("ID=?", Id).Find(&getBook)
+	return &getBook, db
 }
-
 
 // func GetBookById(Id int64) (*Book, *gorm.DB) {
 // 	var getBook Book
@@ -64,9 +63,9 @@ The returned pointer allows you to access the Book struct and its fields,
  while the db object can be used for further database operations if needed.
 */
 
-func DeleteBookById(Id int64) Book{
+func DeleteBookById(Id int64) Book {
 	var book Book
-	db.Where("ID=?",Id).Delete(book)
+	db.Where("ID=?", Id).Delete(book)
 	return book
 }
 
